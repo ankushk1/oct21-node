@@ -4,12 +4,18 @@ const port = 8000;
 const bodyParser = require("body-parser");
 const db = require("./config/mongoose")
 const userRoutes = require("./routes/userRoutes")
-
+const bookRoutes = require("./routes/bookRoutes")
+var cors = require('cors')
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/users", userRoutes)
+app.use("/books", bookRoutes)
 
+var corsOptions = {
+  origin: '*',
+}
+app.use(cors(corsOptions))
 // localhost:8000/users/signup
 // localhost:8000/products/createTodo
 
