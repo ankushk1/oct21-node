@@ -5,12 +5,14 @@ const bodyParser = require("body-parser");
 const db = require("./config/mongoose")
 const userRoutes = require("./routes/userRoutes")
 const bookRoutes = require("./routes/bookRoutes")
+const authorRoutes = require("./routes/authorRoutes")
 var cors = require('cors')
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/users", userRoutes)
 app.use("/books", bookRoutes)
+app.use("/author", authorRoutes)
 
 var corsOptions = {
   origin: '*',
@@ -19,7 +21,7 @@ app.use(cors(corsOptions))
 // localhost:8000/users/signup
 // localhost:8000/products/createTodo
 
-
+app.set("secretKey", "oct21Nodeapp")
 const todoArr = [
   { id: 1, name: "Todo1" },
   { id: 2, name: "Todo2" }

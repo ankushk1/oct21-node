@@ -21,6 +21,7 @@ exports.signup = async (req, res) => {
 };
 
 exports.signin = async (req, res) => {
+  console.log(req.app)
   try {
     const user = await User.findOne({ email: req.body.email });
     if (!user) {
@@ -35,7 +36,7 @@ exports.signin = async (req, res) => {
     }
 
     const {_id, email} = user;
-    const JWTtoken = jwt.sign({_id, email}, "secret", { 
+    const JWTtoken = jwt.sign({_id, email}, req.app.get('secretKey'), { 
       expiresIn: '2h'
     })
     return res.status(200).json({ token: JWTtoken,  message: "Signin Successfull" });

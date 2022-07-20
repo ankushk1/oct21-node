@@ -1,3 +1,4 @@
+const Author = require("../model/Author");
 const Book = require("../model/Book");
 
 exports.createBook = async (req, res) => {
@@ -19,7 +20,16 @@ exports.createBook = async (req, res) => {
 
 exports.getBooks = async (req, res) => {
   try {
-    const books = await Book.find();
+    const books = await Book.find().populate('author', 'name age' );
+
+    // const updatedBooksWithAuthor = await Promise.all(
+    //   books.map(async (book) => {
+    //     const author = await Author.find({ _id: book.author });
+    //     return { ...book, author: author[0] };
+    //   })
+    // );
+    // console.log(updatedBooksWithAuthor);
+
     if (!books) {
       return res.status(400).json({ message: "Error getting books" });
     }
