@@ -26,7 +26,16 @@ const bookSchema = new mongoose.Schema(
     published_year:{
       type: String,
       required: true
-    }
+    },
+    isActive: {
+      type: Boolean,
+      default: true
+    },
+    bought_by :[{
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref:'User'
+    }]
   },
   { timestamps: true }
 );
