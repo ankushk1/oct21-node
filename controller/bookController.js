@@ -52,7 +52,7 @@ exports.getBooks = async (req, res) => {
 
     return res
       .status(200)
-      .json({ booksData: books, messages: "Books fetched successfully" });
+      .json({ booksData: books, message: "Books fetched successfully" });
   } catch (err) {
     return res
       .status(500)
