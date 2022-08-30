@@ -71,7 +71,7 @@ exports.getBookbyId = async (req, res) => {
     }
     return res
       .status(200)
-      .json({ bookData: book, messages: "Book fetched successfully" });
+      .json({ bookData: book, message: "Book fetched successfully" });
   } catch (err) {
     return res
       .status(500)
@@ -88,7 +88,7 @@ exports.deleteBookbyId = async (req, res) => {
         .status(400)
         .json({ message: "Error deleting book / Invalid Id" });
     }
-    return res.status(200).json({ messages: "Book Deleted successfully" });
+    return res.status(200).json({ message: "Book Deleted successfully" });
   } catch (err) {
     return res
       .status(500)
@@ -105,7 +105,7 @@ exports.updateBookbyId = async (req, res) => {
         .status(400)
         .json({ message: "Error updating book / Invalid Id" });
     }
-    return res.status(200).json({ messages: "Book updated successfully" });
+    return res.status(200).json({ message: "Book updated successfully" });
   } catch (err) {
     return res
       .status(500)
@@ -124,7 +124,7 @@ exports.deactivateBook = async (req, res) => {
         .status(400)
         .json({ message: "Error deactivating book" });
     }
-    return res.status(200).json({ messages: "Book deactivated successfully" });
+    return res.status(200).json({ message: "Book deactivated successfully" });
   } catch (err) {
     return res
       .status(500)
@@ -143,7 +143,7 @@ exports.updateBookQuantity = async (req, res) => {
         .status(400)
         .json({ message: "Error updating book quantity" });
     }
-    return res.status(200).json({ messages: "Book quantity updated successfully" });
+    return res.status(200).json({ message: "Book quantity updated successfully" });
   } catch (err) {
     return res
       .status(500)

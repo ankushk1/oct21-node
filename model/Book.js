@@ -12,7 +12,7 @@ const bookSchema = new mongoose.Schema(
     },
     author: {
       type: mongoose.Schema.Types.ObjectId,
-      required: true,
+      // required: true,
       ref:'Author'
     },
     price: {
@@ -33,7 +33,6 @@ const bookSchema = new mongoose.Schema(
     },
     bought_by :[{
       type: mongoose.Schema.Types.ObjectId,
-      required: true,
       ref:'User'
     }]
   },
