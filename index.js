@@ -65,9 +65,9 @@ const todoArr = [
 //   return res.json({ todo: todo, message: "Todo fetched successfully" });
 // });
 
-// app.get("/", (req, res) => {
-//   res.send("Hey node server running");
-// });
+app.get("/", (req, res) => {
+  res.send("Hey node server running");
+});
 
 app.listen(port, () => {
   console.log(`Server successfully running on ${port}`);
