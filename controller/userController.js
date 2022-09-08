@@ -34,11 +34,11 @@ exports.signin = async (req, res) => {
       return res.status(400).json({ message: "Invalid password" });
     }
 
-    const {_id, email} = user;
+    const {_id, email, role} = user;
     const JWTtoken = jwt.sign({_id, email}, req.app.get('secretKey'), { 
       expiresIn: '2h'
     })
-    return res.status(200).json({ token: JWTtoken,  message: "Signin Successfull" });
+    return res.status(200).json({ token: JWTtoken, user:{_id, email, role},  message: "Signin Successfull" });
   } catch (err) {
     return res
       .status(500)
