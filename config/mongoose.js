@@ -1,11 +1,11 @@
 const mongoose = require('mongoose')
 
-mongoose.connect("mongodb://127.0.0.1:27017/oct21",{
+mongoose.connect("mongodb+srv://ankush:1t8v3ynymzkAetdT@cluster0.szogzvc.mongodb.net/?retryWrites=true&w=majority",{
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
 
-
+// 1t8v3ynymzkAetdT
 const db = mongoose.connection
 
 db.on("error", (err) => {
