@@ -6,6 +6,9 @@ const db = require("./config/mongoose");
 const userRoutes = require("./routes/userRoutes");
 const bookRoutes = require("./routes/bookRoutes");
 const authorRoutes = require("./routes/authorRoutes");
+const dotenv = require("dotenv");
+dotenv.config()
+
 const cors = require("cors");
 var corsOptions = {
   origin: "*"
