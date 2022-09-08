@@ -1,11 +1,10 @@
 const mongoose = require('mongoose')
 
-mongoose.connect("mongodb+srv://ankush:1t8v3ynymzkAetdT@cluster0.szogzvc.mongodb.net/?retryWrites=true&w=majority",{
+mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://ankush:1t8v3ynymzkAetdT@cluster0.szogzvc.mongodb.net/?retryWrites=true&w=majority",{
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
 
-// 1t8v3ynymzkAetdT
 const db = mongoose.connection
 
 db.on("error", (err) => {
